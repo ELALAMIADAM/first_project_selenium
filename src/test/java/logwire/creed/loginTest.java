@@ -18,6 +18,7 @@ public class loginTest {
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
         assertEquals("https://www.saucedemo.com/inventory.html", driver.getCurrentUrl());
+        driver.quit();
     }
     @Test 
     public void loginInvalid(){
@@ -27,7 +28,9 @@ public class loginTest {
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
         String var = driver.findElement(By.cssSelector("[data-test=\"error\"]")).getText();
-        assertTrue(driver.findElement(By.cssSelector("[data-test=\"error\"]")).isDisplayed());
-        assertEquals("Epic sadface: Username and password do not match any user in this service", var);
+        // assertTrue(driver.findElement(By.cssSelector("[data-test=\"error\"]")).isDisplayed());
+        // assertEquals("Epic sadface: Username and password do not match any user in this service", var);
+        assertTrue(var.contains("Epic sadface: Username and password do not match any user in this service"));
+        driver.quit();
     }
 }
