@@ -36,7 +36,7 @@ public class CartTest {
         String var = driver.findElement(By.cssSelector("[data-test=\"shopping-cart-badge\"]")).getText();
         assertEquals("1", var);
         driver.findElement(By.cssSelector("[data-test=\"shopping-cart-link\"]")).click();
-        assertEquals("/cart.html", driver.getCurrentUrl());
+        assertEquals("https://www.saucedemo.com/cart.html", driver.getCurrentUrl());
         
     } 
 
