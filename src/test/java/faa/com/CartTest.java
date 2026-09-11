@@ -9,12 +9,13 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class CartTest {
     WebDriver driver;
     @BeforeEach 
     public void setUp(){
-        driver = new ChromeDriver();
+        driver = new FirefoxDriver();
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
@@ -29,7 +30,7 @@ public class CartTest {
     }
 
     @Test
-    public void CartTest(){
+    public void CartTest1(){
         assertEquals("https://www.saucedemo.com/inventory.html", driver.getCurrentUrl());
         driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
         assertTrue(driver.findElement(By.id("remove-sauce-labs-backpack")).isDisplayed());

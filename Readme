@@ -1,1 +1,5 @@
 mvn surefire-report:report
+allure-result/
+./allure/
+
+mvn allure:serve
